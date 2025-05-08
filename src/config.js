@@ -28,9 +28,39 @@ const config = {
   navigation: [
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
-    { name: "Promotions", path: "/promotions" },
-    { name: "Order Online", path: "/order" },
   ],
+
+  // Footer configuration
+  footer: {
+    sections: [
+      {
+        title: "Quick Links",
+        type: "navigation",
+        items: "navigation" // References navigation array
+      },
+      {
+        title: "Contact Us",
+        type: "contact",
+        display: [
+          { field: "brand.name" },
+          { field: "contact.address.line1" },
+          { field: "contact.address.city" },
+          { field: "contact.address.postcode" },
+          { field: "contact.address.email", prefix: "Email: " },
+          { field: "contact.address.phone", prefix: "Phone: " }
+        ]
+      },
+      {
+        title: "Follow Us",
+        type: "social",
+        platforms: ["facebook", "instagram", "twitter"]
+      }
+    ],
+    copyright: {
+      text: "© {year} {brand.name}. All rights reserved.",
+      year: new Date().getFullYear()
+    }
+  },
 
   // Firestore schema for flexible data structure
   firestoreSchema: {
