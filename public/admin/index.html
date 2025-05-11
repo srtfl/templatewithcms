@@ -29,11 +29,11 @@
           } else {
             console.error("CMS not loaded.");
           }
-        }, 100);
+        }, 500); // Increased delay
       }
 
       const script = document.createElement("script");
-      script.src = "https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js";
+      script.src = "https://unpkg.com/decap-cms@3.1.1/dist/decap-cms.js"; // Try 3.1.1
       script.onload = initCMS;
       document.head.appendChild(script);
     </script>
