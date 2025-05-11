@@ -6,14 +6,17 @@
     <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
   </head>
   <body>
+    <!-- ✅ THIS IS IMPORTANT -->
+    <div id="nc-root"></div>
+
     <script>
-      // Delay CMS init until everything is loaded
       window.addEventListener("DOMContentLoaded", function () {
         if (window.CMS) {
           try {
             CMS.init();
+            console.log("CMS initialized.");
           } catch (e) {
-            console.error("CMS failed to initialize:", e);
+            console.error("CMS init error:", e);
           }
         } else {
           console.error("CMS not loaded.");
