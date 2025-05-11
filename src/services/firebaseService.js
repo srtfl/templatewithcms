@@ -7,7 +7,7 @@ import {
   setDoc,
   serverTimestamp,
 } from 'firebase/firestore';
-import config from '../config';
+import config from '../config/config';
 
 // Helper function to validate data against schema
 const validateData = (data, schema, collectionName) => {

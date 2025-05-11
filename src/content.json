@@ -1,0 +1,32 @@
+{
+  "sections": [
+    {
+      "type": "HeroSection",
+      "props": {
+        "title": "Welcome to Your No-Code Website!",
+        "subtitle": "Edit content easily using this JSON file.",
+        "ctaText": "Get Started",
+        "ctaLink": "/start"
+      }
+    },
+    {
+      "type": "FeaturesGrid",
+      "props": {
+        "features": [
+          {
+            "title": "Easy to Edit",
+            "description": "Update text in one place."
+          },
+          {
+            "title": "Reusable Blocks",
+            "description": "Compose your site from pieces."
+          },
+          {
+            "title": "Deploy Fast",
+            "description": "Push to Netlify or Vercel instantly."
+          }
+        ]
+      }
+    }
+  ]
+}

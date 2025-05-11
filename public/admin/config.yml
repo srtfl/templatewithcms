@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "sections"
+    label: "Page Sections"
+    folder: "src/content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "CTA Text", name: "ctaText", widget: "string" }
+      - { label: "CTA Link", name: "ctaLink", widget: "string" }

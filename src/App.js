@@ -1,27 +1,27 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth } from './firebase'; // Corrected from './services/firebase'
 import { CartProvider } from "./contexts/CartContext";
 
 // Component imports
-import Header from './components/Header';
-import ScrollToTop from './components/ScrollToTop';
-import HeroSection from './components/HeroSection';
+import Header from './components/ui/Header';
+import ScrollToTop from './components/ui/ScrollToTop';
+import HeroSection from './Features/home/HeroSection'; // Corrected path
 import MenuSection from './components/MenuSection';
 import OrderOnlineSection from './components/OrderOnlineSection';
-import AboutSection from './components/AboutSection';
-import ContactSection from './components/ContactSection';
-import SuccessPage from './components/SuccessPage';
-import CancelPage from './components/CancelPage';
+import AboutSection from './Features/about/AboutSection'; // Corrected path
+import ContactSection from './Features/contact/ContactSection';
+import SuccessPage from './pages/SuccessPage';
+import CancelPage from './pages/CancelPage';
+import AdminPanel from './Features/admin/AdminPanel'; // Corrected path
+import OrdersPanel from './Features/admin/OrdersPanel';
+import RequestMyData from './Features/user/RequestMyData'; // Corrected path
+import PrivacyPolicy from './components/PrivacyPolicy';
 import Login from './components/Login';
-import AdminPanel from './components/AdminPanel';
-import OrdersPanel from './components/OrdersPanel';
 import ProtectedRoute from './components/ProtectedRoute';
 import FloatingOrderButton from './components/FloatingOrderButton';
-import Footer from './components/Footer';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import RequestMyData from './components/RequestMyData';
+import Footer from './components/ui/Footer';
 import GDPRPopup from './components/GDPRPopup'; // ✅ Proper import
 
 // Auth context
@@ -34,7 +34,9 @@ function App() {
   console.log("Loaded env:", {
     API_KEY: process.env.REACT_APP_FIREBASE_API_KEY,
     ALL: process.env
-  });  useEffect(() => {
+  });
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setUser(user);
       if (user) {
