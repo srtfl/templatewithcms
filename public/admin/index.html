@@ -58,5 +58,22 @@
       script.onload = confirmUserIfNeeded;
       document.head.appendChild(script);
     </script>
+    <script>
+      if (window.location.hash.includes("confirmation_token")) {
+        const token = window.location.hash.split("=")[1];
+        fetch("/.netlify/identity/confirm", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ confirmation_token: token }),
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log("Confirmation result:", data);
+          window.location.href = "/admin/"; // Redirect to CMS
+        })
+        .catch(err => console.error("Error confirming email:", err));
+      }
+    </script>
+    
   </body>
 </html>
