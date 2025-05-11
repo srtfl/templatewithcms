@@ -1,28 +1,17 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <title>Content Manager</title>
-    <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
   </head>
   <body>
-    <!-- Placeholder for CMS -->
-    <div id="nc-root"></div>
-
+    <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
     <script>
-      window.CMS_MANUAL_INIT = true;
-      window.addEventListener('load', () => {
-        if (window.CMS) {
-          try {
-            CMS.init();
-            console.log('CMS initialized successfully.');
-          } catch (error) {
-            console.error('Error initializing CMS:', error);
-          }
-        } else {
-          console.error('CMS is not defined. Ensure the script is loaded correctly.');
-        }
-      });
+      if (window.CMS) {
+        CMS.init();
+      } else {
+        console.error("CMS is not defined.");
+      }
     </script>
   </body>
 </html>
