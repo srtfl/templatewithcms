@@ -8,21 +8,30 @@
     <div id="nc-root"></div>
 
     <script>
-      // Define initCMS function first
       function initCMS() {
-        if (window.CMS) {
-          try {
-            CMS.init();
-            console.log("CMS initialized.");
-          } catch (e) {
-            console.error("CMS init error:", e);
+        setTimeout(() => {
+          const ncRoot = document.getElementById("nc-root");
+          if (!ncRoot) {
+            console.error("nc-root element not found!");
+            return;
           }
-        } else {
-          console.error("CMS not loaded.");
-        }
+          console.log("nc-root element before init:", ncRoot);
+          console.log("nc-root children before init:", ncRoot.children);
+          if (window.CMS) {
+            try {
+              CMS.init();
+              console.log("CMS initialized.");
+              console.log("nc-root after init:", ncRoot);
+              console.log("nc-root children after init:", ncRoot.children);
+            } catch (e) {
+              console.error("CMS init error:", e);
+            }
+          } else {
+            console.error("CMS not loaded.");
+          }
+        }, 100);
       }
 
-      // Load the Decap CMS script and call initCMS when loaded
       const script = document.createElement("script");
       script.src = "https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js";
       script.onload = initCMS;
