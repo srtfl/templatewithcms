@@ -1,0 +1,184 @@
+[
+  {
+    "name": "Taro Classic Milk Tea",
+    "image": "/images/taro-classic-milk-tea.jpg",
+    "category": "milk-teas",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Matcha Milk Fusion",
+    "image": "/images/matcha-milk-fusion.jpg",
+    "category": "milk-teas",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Chocolate Milk Tea",
+    "image": "/images/chocolate-milk-tea.jpg",
+    "category": "milk-teas",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Honeydew Cream Milk Tea",
+    "image": "/images/honeydew-cream-milk-tea.jpg",
+    "category": "milk-teas",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Mango Peach Fruit Tea",
+    "image": "/images/mango-peach-fruit-tea.jpg",
+    "category": "fruit-teas",
+    "priceReg": 3.79,
+    "priceLrg": 4.79
+  },
+  {
+    "name": "Lychee Fruit Tea",
+    "image": "/images/lychee-fruit-tea.jpg",
+    "category": "fruit-teas",
+    "priceReg": 3.79,
+    "priceLrg": 4.79
+  },
+  {
+    "name": "Grape Storm",
+    "image": "/images/grape-storm.jpg",
+    "category": "fruit-teas",
+    "priceReg": 3.79,
+    "priceLrg": 4.79
+  },
+  {
+    "name": "Passion Fruit Green Tea",
+    "image": "/images/passion-fruit-green-tea.jpg",
+    "category": "fruit-teas",
+    "priceReg": 3.79,
+    "priceLrg": 4.79
+  },
+  {
+    "name": "Strawberry Lychee Green Tea",
+    "image": "/images/strawberry-lychee-green-tea.jpg",
+    "category": "fruit-teas",
+    "priceReg": 3.79,
+    "priceLrg": 4.79
+  },
+  {
+    "name": "Peach Jasmine Green Tea",
+    "image": "/images/peach-jasmine-green-tea.jpg",
+    "category": "fruit-teas",
+    "priceReg": 3.79,
+    "priceLrg": 4.79
+  },
+  {
+    "name": "Taro Brown Sugar Swirl",
+    "image": "/images/taro-brown-sugar-swirl.jpg",
+    "category": "special-teas",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Peach Passion Royale",
+    "image": "/images/peach-passion-royale.jpg",
+    "category": "special-teas",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Strawberry Matcha Latte",
+    "image": "/images/strawberry-matcha-latte.jpg",
+    "category": "special-teas",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Brown Sugar Coffee Latte",
+    "image": "/images/brown-sugar-coffee-latte.jpg",
+    "category": "special-teas",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Oreo Milkshake",
+    "image": "/images/oreo-milkshake.jpg",
+    "category": "milkshakes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Mars Milkshake",
+    "image": "/images/mars-milkshake.jpg",
+    "category": "milkshakes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Twix Milkshake",
+    "image": "/images/twix-milkshake.jpg",
+    "category": "milkshakes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Strawberry Twist Shake",
+    "image": "/images/strawberry-twist-shake.jpg",
+    "category": "fruity-shakes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Mango Lychee Float",
+    "image": "/images/mango-lychee-float.jpg",
+    "category": "fruity-shakes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Peach Strawberry Shake",
+    "image": "/images/peach-strawberry-shake.jpg",
+    "category": "fruity-shakes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Ferro Fantasy Sundae",
+    "image": "/images/ferro-fantasy-sundae.jpg",
+    "category": "sundaes",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Bueno Bliss Sundae",
+    "image": "/images/bueno-bliss-sundae.jpg",
+    "category": "sundaes",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Mars Melt Sundae",
+    "image": "/images/mars-melt-sundae.jpg",
+    "category": "sundaes",
+    "priceReg": 3.49,
+    "priceLrg": 4.49
+  },
+  {
+    "name": "Matcha Breeze",
+    "image": "/images/matcha-breeze.jpg",
+    "category": "frappes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Taro Chill",
+    "image": "/images/taro-chill.jpg",
+    "category": "frappes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  },
+  {
+    "name": "Chocolate Freeze",
+    "image": "/images/chocolate-freeze.jpg",
+    "category": "frappes",
+    "priceReg": 4.49,
+    "priceLrg": 5.49
+  }
+]
