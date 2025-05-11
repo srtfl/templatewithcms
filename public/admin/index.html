@@ -6,11 +6,19 @@
     <script src="https://unpkg.com/decap-cms@3.6.2/dist/decap-cms.js"></script>
   </head>
   <body>
+    <!-- Placeholder for CMS -->
+    <div id="nc-root"></div>
+
     <script>
       window.CMS_MANUAL_INIT = true;
       window.addEventListener('load', () => {
         if (window.CMS) {
-          CMS.init();
+          try {
+            CMS.init();
+            console.log('CMS initialized successfully.');
+          } catch (error) {
+            console.error('Error initializing CMS:', error);
+          }
         } else {
           console.error('CMS is not defined. Ensure the script is loaded correctly.');
         }
