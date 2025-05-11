@@ -6,6 +6,7 @@ import { FaShoppingCart, FaUndo } from 'react-icons/fa';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { getCategories } from '../services/firebaseService';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 // Initialize Stripe with your test publishable key
 const stripePromise = loadStripe('pk_test_51RJdtSFZmDqqR2xX7akXUxT2lS7ySehkgy9zc79wXAs84sQbHX0q3kzAXkUqBqhbuh8FwnEbLWIG18K1FnXpKvGq00alUzv5o2');
@@ -21,6 +22,8 @@ function CheckoutForm({ totalAmount, cartItems, onSuccess, onCancel, onClose }) 
   const [processing, setProcessing] = useState(false);
   const [success, setSuccess] = useState(false);
   const [paymentId, setPaymentId] = useState(null);
+
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleSubmit = async (event) => {
     event.preventDefault();
