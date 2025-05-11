@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getCategories, savePromotion } from '../../services/firebaseService'; // Adjust the path as needed
 
 function PromotionForm({ promotion, onDone, onCancel }) {
   const [title, setTitle] = useState(promotion?.title || '');
@@ -11,6 +12,7 @@ function PromotionForm({ promotion, onDone, onCancel }) {
   const [active, setActive] = useState(promotion?.active ?? true);
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     const fetchCategories = async () => {
