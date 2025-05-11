@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Content Manager</title>
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
+    <button onclick="netlifyIdentity.open()">Sign Up / Log In</button>
+
     <div id="nc-root"></div>
 
     <script>
@@ -33,9 +37,21 @@
       }
 
       const script = document.createElement("script");
-      script.src = "https://unpkg.com/decap-cms@3.1.1/dist/decap-cms.js"; // Try 3.1.1
+      script.src = "https://unpkg.com/decap-cms@3.1.1/dist/decap-cms.js";
       script.onload = initCMS;
       document.head.appendChild(script);
+
+      // Initialize Netlify Identity
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+        window.netlifyIdentity.init();
+      }
     </script>
   </body>
 </html>
