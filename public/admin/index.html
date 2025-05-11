@@ -3,15 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <title>Content Manager</title>
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <button onclick="netlifyIdentity.open()">Sign Up / Log In</button>
-
     <div id="nc-root"></div>
 
     <script>
+      function confirmUserIfNeeded() {
+        const hash = window.location.hash;
+        const match = hash.match(/confirmation_token=([^&]+)/);
+        if (match) {
+          const token = match[1];
+          console.log("Confirmation token found:", token);
+
+          fetch(`https://meek-moonbeam-0dc4a5.netlify.app/.netlify/identity/confirm?confirmation_token=${token}`)
+            .then((res) => {
+              if (res.ok) {
+                console.log("Email confirmed successfully.");
+              } else {
+                console.error("Email confirmation failed:", res.status);
+              }
+              initCMS();
+            })
+            .catch((err) => {
+              console.error("Error confirming email:", err);
+              initCMS();
+            });
+        } else {
+          initCMS();
+        }
+      }
+
       function initCMS() {
         setTimeout(() => {
           const ncRoot = document.getElementById("nc-root");
@@ -19,39 +40,23 @@
             console.error("nc-root element not found!");
             return;
           }
-          console.log("nc-root element before init:", ncRoot);
-          console.log("nc-root children before init:", ncRoot.children);
           if (window.CMS) {
             try {
               CMS.init();
               console.log("CMS initialized.");
-              console.log("nc-root after init:", ncRoot);
-              console.log("nc-root children after init:", ncRoot.children);
             } catch (e) {
               console.error("CMS init error:", e);
             }
           } else {
             console.error("CMS not loaded.");
           }
-        }, 500); // Increased delay
+        }, 500);
       }
 
       const script = document.createElement("script");
       script.src = "https://unpkg.com/decap-cms@3.1.1/dist/decap-cms.js";
-      script.onload = initCMS;
+      script.onload = confirmUserIfNeeded;
       document.head.appendChild(script);
-
-      // Initialize Netlify Identity
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-        window.netlifyIdentity.init();
-      }
     </script>
   </body>
 </html>
