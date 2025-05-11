@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useCart } from '../contexts/CartContext';
-import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaUndo } from 'react-icons/fa';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
@@ -11,12 +10,11 @@ import { getCategories } from '../services/firebaseService';
 // Initialize Stripe with your test publishable key
 const stripePromise = loadStripe('pk_test_51RJdtSFZmDqqR2xX7akXUxT2lS7ySehkgy9zc79wXAs84sQbHX0q3kzAXkUqBqhbuh8FwnEbLWIG18K1FnXpKvGq00alUzv5o2');
 
-const placeholderImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB0SURBVHhe3c0BDQAAAMKg9U9tCy8aAADgT+2BAACgABAAAgAAIAABAAAgAAQAASAABAAAgAAIAAAgAAQAASAABAAAgAAIAAAgAAQAASAABAAAgAAIAAAgAAQAASAABAAAgAAIAACAQ78BASm1PbgAAAAASUVORK5CYII=';
+const placeholderImage = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB0SURBVHhe3c0BDQAAAMKg9U9tCy8aAADgT+2BAACgABAAAgAAIAABAAAgAAQAASAABAAAgAAIAAAgAAQAASAABAAAgAAIAAAgAAQAASAABAAAgAAIAACAQ78BASm1PbgAAAAASUVORK5CYII=';
 
 function CheckoutForm({ totalAmount, cartItems, onSuccess, onCancel, onClose }) {
   const stripe = useStripe();
   const elements = useElements();
-  const navigate = useNavigate();
   const { clearCart } = useCart();
   const [error, setError] = useState(null);
   const [cancelled, setCancelled] = useState(false);
@@ -195,7 +193,6 @@ function MenuSection() {
   const [failedImages, setFailedImages] = useState(new Set());
 
   const { cartItems, addToCart, removeFromCart } = useCart();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const syncSelectedItemsWithCart = () => {
