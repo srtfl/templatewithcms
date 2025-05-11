@@ -39,6 +39,7 @@ function ContactSection() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="rounded-lg shadow-lg w-full"
+            title="CoCo's Bubble Tea Shop Meadow Row, Buckingham"
           ></iframe>
         </div>
 
