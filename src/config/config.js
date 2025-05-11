@@ -8,14 +8,6 @@ const config = {
     textColor: "#666666", // Default text color
   },
 
-  // Contact details for the business
-  contact: {
-    phone: "123-456-7890",
-    email: "info@coco.com",
-    addressLine1: "123 Tea Lane",
-    city: "Brewtown",
-    postcode: "BT1 2EA",
-  },
 
   // Social media links
   social: {
