@@ -8,31 +8,6 @@
     <div id="nc-root"></div>
 
     <script>
-      function confirmUserIfNeeded() {
-        const hash = window.location.hash;
-        const match = hash.match(/confirmation_token=([^&]+)/);
-        if (match) {
-          const token = match[1];
-          console.log("Confirmation token found:", token);
-
-          fetch(`https://meek-moonbeam-0dc4a5.netlify.app/.netlify/identity/confirm?confirmation_token=${token}`)
-            .then((res) => {
-              if (res.ok) {
-                console.log("Email confirmed successfully.");
-              } else {
-                console.error("Email confirmation failed:", res.status);
-              }
-              initCMS();
-            })
-            .catch((err) => {
-              console.error("Error confirming email:", err);
-              initCMS();
-            });
-        } else {
-          initCMS();
-        }
-      }
-
       function initCMS() {
         setTimeout(() => {
           const ncRoot = document.getElementById("nc-root");
@@ -53,27 +28,37 @@
         }, 500);
       }
 
+      function confirmUserIfNeeded() {
+        const hash = window.location.hash;
+        const match = hash.match(/confirmation_token=([^&]+)/);
+        if (match) {
+          const token = match[1];
+          console.log("Found confirmation token:", token);
+
+          fetch("/.netlify/identity/confirm", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ confirmation_token: token }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("Confirmation response:", data);
+              // Optional: remove token from URL
+              window.location.href = "/admin/";
+            })
+            .catch((err) => {
+              console.error("Error during email confirmation:", err);
+              initCMS();
+            });
+        } else {
+          initCMS();
+        }
+      }
+
       const script = document.createElement("script");
       script.src = "https://unpkg.com/decap-cms@3.1.1/dist/decap-cms.js";
       script.onload = confirmUserIfNeeded;
       document.head.appendChild(script);
     </script>
-    <script>
-      if (window.location.hash.includes("confirmation_token")) {
-        const token = window.location.hash.split("=")[1];
-        fetch("/.netlify/identity/confirm", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ confirmation_token: token }),
-        })
-        .then(res => res.json())
-        .then(data => {
-          console.log("Confirmation result:", data);
-          window.location.href = "/admin/"; // Redirect to CMS
-        })
-        .catch(err => console.error("Error confirming email:", err));
-      }
-    </script>
-    
   </body>
 </html>
